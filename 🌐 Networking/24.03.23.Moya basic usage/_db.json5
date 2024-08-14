@@ -1,0 +1,10 @@
+{
+  address: {
+    firstName: "John",
+    lastName: "Doe",
+    line1: "123 Main St",
+    city: "New York",
+    zipCode: "10001",
+    phoneNumber: "555-123-4567"
+  }
+}

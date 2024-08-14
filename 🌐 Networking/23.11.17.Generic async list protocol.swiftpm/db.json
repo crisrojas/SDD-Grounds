@@ -1,0 +1,43 @@
+{
+  "feeds": [
+    {
+      "id": "1",
+      "title": "First Feed",
+      "subtitle": "Subtitle for the first feed",
+      "commentCount": "5"
+    },
+    {
+      "id": "2",
+      "title": "Second Feed",
+      "subtitle": "Subtitle for the second feed",
+      "commentCount": "10"
+    },
+    {
+      "id": "3",
+      "title": "Third Feed",
+      "subtitle": "Subtitle for the third feed",
+      "commentCount": "2"
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "feedId": "1",
+      "author": "John Doe",
+      "comment": "This is a comment on the first feed."
+    },
+    {
+      "id": "2",
+      "feedId": "1",
+      "author": "Jane Smith",
+      "comment": "Another comment on the first feed."
+    },
+    {
+      "id": "3",
+      "feedId": "2",
+      "author": "Alice",
+      "comment": "Comment on the second feed."
+    }
+  ]
+}
+
