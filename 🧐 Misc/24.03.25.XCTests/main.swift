@@ -1,5 +1,5 @@
 import Foundation
- 
+ // @todo: study this more complete implementation: https://github.com/Liquidsoul/XCTestPlayground/blob/master/XCTestPlayground.swift
 protocol XCTest: AnyObject {}
 extension XCTest {
 	func run() {callAllVoidMethods(from: self)}

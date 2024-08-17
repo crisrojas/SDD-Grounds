@@ -11,6 +11,8 @@
 	
 	The code I came up with here works to an extend by comparing any properties that are Equatable conformers, so it will ignore
 	not only the closures but all the non conforming to equatable, which misses the point. It seems this isn't possible to implement...
+	
+	The best way is to [explicitly annotate the closures with a property-wrapper](https://gist.github.com/Iron-Ham/d0eb72822f0965a3688241a70ec08f8c)
 */
 extension Equatable {
 	func isEqual(_ other: any Equatable) -> Bool {

@@ -35,20 +35,22 @@ struct Is<T> {
 	}
 	
 	var not: Not<T> { .init(parent: parent) }
-	
-	@dynamicMemberLookup
-	struct Not<E> {
-		var parent: T
-		subscript(dynamicMember member: KeyPath<T, Bool>) -> Bool {
-			!parent[keyPath: member]
-		}
+}
+
+@dynamicMemberLookup
+struct Not<T> {
+	var parent: T
+	subscript(dynamicMember member: KeyPath<T, Bool>) -> Bool {
+		!parent[keyPath: member]
 	}
 }
+
 
 protocol BoolVerifiable {}
 
 extension BoolVerifiable {
 	var `is`: Is<Self> { .init(parent: self) }
+	var isNot: Not<Self> { .init(parent: self) }
 }
 
 struct Object: BoolVerifiable {
@@ -58,6 +60,7 @@ struct Object: BoolVerifiable {
 var object = Object()
 print(object.is.presented) // false
 print(object.is.not.presented) // true
+print(object.isNot.presented)
 
 object.presented = true
 print(object.is.presented) // true
@@ -78,3 +81,4 @@ myClass.loading = false
 
 print(myClass.is.opening)
 print(myClass.is.not.loading)
+
