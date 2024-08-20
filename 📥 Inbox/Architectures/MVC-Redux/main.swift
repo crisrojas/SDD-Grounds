@@ -43,7 +43,13 @@ protocol Redux: AnyObject {
 
 // Default implementations
 extension Redux {
-    func updateUI() { dispatch(functionOfState, on: .main) }
+    func updateUI() { dispatchOnMainIfNecessary(functionOfState) }
+    
+    func dispatchOnMainIfNecessary(_ action: @escaping () -> Void) {
+        if Thread.isMainThread { action() ; return }
+        dispatch(action, on: .main)
+    }
+    
     func dispatch(_ action: @escaping () -> Void, on queue: DispatchQueue) {
         queue.async { action() }
     }
@@ -57,8 +63,8 @@ extension Redux {
 
 final class LoginViewController: UIViewController {
     
-    private let emailField = UITextField()
-    private let passField  = UITextField()
+    private let emailField  = UITextField()
+    private let passField   = UITextField()
     private let loginButton = UIButton()
     private let statusLabel = UILabel()
     
@@ -101,14 +107,15 @@ final class LoginViewController: UIViewController {
             state = .loading
             login(
                 email: email,
-                pass: pass, 
-                onDone: map ~> update
-            )
+                pass: pass,
+                // This potentially causes a retention cycle
+                // as closure captures self
+                onDone: map ~> update)
+            
             
         case .recoverPass: break
         }
     }
-    
 }
 
 // MARK: - Controller helpers

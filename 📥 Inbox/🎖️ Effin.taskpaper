@@ -1,0 +1,55 @@
+Concurrencia:
+	- Actors
+	- Swift Concurrency
+	- Classic Concurrency (operations, semaphores, etc...)
+	- Deadlocks
+	- Dataraces
+Gestión de memoria:
+	- ¿Son los closures valores por referencias o copias?
+	- ¿En qué casos querremos capturar el self de forma fuerte?:
+		- I frequently encounter bugs caused by unnecessary reflexive [weak self] (and, anecdatally, I would say that incorrect uses of weak outweigh correct ones by about 10:1).
+		- It's frequently the case that an effect in a closure must happen – for example, committing data to a persistent store, or signaling a semaphore – but this doesn't happen because of an inappropriately weak reference that is gone by the time the closure is called.
+		- Making weak the implicit default would move responsibility for these errors from the user to the language, worsening the problem.
+Networking:
+	- Sync
+	- Optimistic UI
+Persistency:
+	- Migrations & model updates
+Testing:
+	- Integration tests
+UIKIt:
+	- Responder chain
+AI:
+	- Alimentar una ai (local o de pago) con mis propia data (por ejemplo, con libros de programación)
+📥 :
+	Apps:
+		Fullstack:
+			- Medium clone
+			- Recipes
+			- Things clone (¿full stack?)
+		Mobile:
+Problemas:
+	- GamingOn: Retranscribir problema (3h)
+Patrones de diseño:
+	- Drag
+	- Resize
+	- Magnfiy
+	- Drag to select
+	- Select
+	- Reorder
+	- Infinite scroll
+		- Keeping infinite items in memory could create memory issues if the list is extremely long. 
+		- A real-world solution may need to only keep part of the items list in memory, and the rest on disk
+Otros:
+	- CoreML
+	- `@autoclosure`
+	- `@Sendable`
+	- Storyboards en Swift package / framework
+	- Combine
+	- Distribución (CI/CD)
+	- XCode Cloud
+	- Accesibilidad
+	- UI Testing
+	- Widgets & Live Activities
+	- Hot Reloading
+
